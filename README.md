@@ -1,4 +1,7 @@
-# Dealing with Small Datasets for Deep Learning in Medical Imaging: An Evaluation of Self-Supervised Pre-Training with Convolutional Models on CT Scans Comparing Contrastive and Masked Autoencoder Methods.
+# Self-Supervised Pre-Training with Contrastive and Masked Autoencoder Methods for Dealing with Small Datasets in Deep Learning for Medical Imaging
 
-The paper is under review. The code will be released if accepted.
+Paper accepted in Nature Scientific Reports. 
+ArXiv Version: <https://arxiv.org/abs/2308.06534>
+
+
 
