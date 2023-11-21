@@ -38,7 +38,7 @@ if "module" in state_dict: # (SparK)
     state_dict = state_dict["module"] 
 if "state_dict" in state_dict: # (SwAV, MoCo, BYOL) 
     state_dict = state_dict["state_dict"]
-# Replacing: 
+# Replacement: 
 if pre_train == "SparK" or pre_train == "SwAV":
         state_dict = {k.replace("model.", ""): v for k, v in state_dict.items()}  
 elif pre_train == "MoCo":
