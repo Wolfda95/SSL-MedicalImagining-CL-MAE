@@ -26,16 +26,33 @@ If you are using Conda on Linux, here is how to get started:
     2. Run all cells 
 
 
-### Start Notebooks from Bash
-This is not necessary, you can just run everything in Jupyter Notebook or Jupyter Lab. However this might be helpfull
+### Start Notebooks from Bash:
+This is not necessary, you can run everything directly in Jupyter Notebook or Jupyter Lab. However this might be useful
 1. Open the notebook in Jupyter Lab
-2. Click in the first code cell (This cell has all the parameters that needs to be set)
+2. Click in the first code cell (This cell has all the parameters that needs to be specified)
     1. On the left click on the two gear wheels
     2. Add a cell tag with the name "parameters" \
      ![Parameters](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/assets/75016933/afcd9342-a6a7-4921-a25a-c1fdcc827cd6)
 3. Download papermill <code>conda install -c conda-forge papermill</code>
-4. Creat a bash file (e.g. "file.sh"=
+4. Creat a bash file (e.g. "file.sh"). All variables from the first code cell are parameters and can be specified in the bash file with -p ...
+   
+```bash
+# COVID-19
+papermill COVID-19.ipynb COVID-19.ipynb \
+-p root_dir "path/where/results/should/be/saved" \
+-p Run "WandB_Name_of_Run" \
+-p pretrained_weights "/path/to/the/downloaded/checkpoints/SparK.pth" \
+-p pre_train "SparK" \
 
+# OrgMNIST
+papermill OrgMNIST.ipynb OrgMNIST.ipynb \
+-p root_dir "path/where/results/should/be/saved" \
+-p Run "WandB_Name_of_Run" \
+-p pretrained_weights "/path/to/the/downloaded/SwAV.ckpt" \
+-p pre_train "SwAV" \
+
+```
+5. Run the bash file (this will start the notebook)
 
 
    
