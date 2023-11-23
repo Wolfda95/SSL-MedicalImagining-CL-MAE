@@ -7,7 +7,7 @@ We tested our pre-training on three CT classification tasks:
 - **Brain**: Brain hemorrhage classification on brain CT scans on an internal dataset of the Ulm Univerity Medical Center
 
   
-Here are the jupyther notebooks for the three Downstream Tasks.
+Here are the jupyther notebooks with PyTorch Lightning and Moani for the three Downstream Tasks.
 
 ### How to Start: 
 If you are using Conda on Linux, here is how to get started: 
@@ -20,9 +20,9 @@ If you are using Conda on Linux, here is how to get started:
        (The newest PyTorch should also work [https://pytorch.org/](https://pytorch.org/))
     4. <code>cd ...SSL-MedicalImagining-CL-MAE/Downstream/</code>
     5. <code>pip install -r requirements.txt</code>
-2. Download Jupyter Notebook
+2. Download Jupyter
 3. Login to Wandb (or create an account [https://wandb.ai/](https://wandb.ai/))
-4. Open the Notebooks "OrgMNIST.ipynb" or "COVID_19.ipynb" or "Brain.ipynb"
+4. Open "OrgMNIST.ipynb" or "COVID_19.ipynb" or "Brain.ipynb" in Jupyter Notebook or Jupyter Lab
     1. Fill out the first cell with your preferences (Here you have to add the path to the downloaded pre-training checkpoints from the main README.md)
     2. Run all cells 
 
