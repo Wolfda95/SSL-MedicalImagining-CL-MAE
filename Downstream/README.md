@@ -17,6 +17,7 @@ If you are using Conda on Linux, here is how to get started:
     3. *CUDA 10.2:* <code>conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=10.2 -c pytorch</code>\
        *CUDA 11.3:* <code>conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.3 -c pytorch</code>\
        *CUDA 11.6:* <code>conda install pytorch==1.12.1 torchvision==0.13.1 torchaudio==0.12.1 cudatoolkit=11.6 -c pytorch -c conda-forge</code>
+       (The newest PyTorch should also work [https://pytorch.org/](https://pytorch.org/))
     4. <code>cd ...SSL-MedicalImagining-CL-MAE/Downstream/</code>
     5. <code>pip install -r requirements.txt</code>
 2. Download Jupyter Notebook
