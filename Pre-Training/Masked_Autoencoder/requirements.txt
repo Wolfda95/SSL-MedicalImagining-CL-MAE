@@ -1,0 +1,8 @@
+matplotlib
+numpy
+Pillow
+typed-argument-parser
+timm==0.5.4
+setuptools==59.5.0
+tensorboard
+tensorboardx
