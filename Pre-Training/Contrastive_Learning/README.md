@@ -3,6 +3,7 @@
 We used the implementation of PyTorch Lightning Bolds [https://lightning.ai/docs/pytorch/stable/ecosystem/bolts.html](https://lightning.ai/docs/pytorch/stable/ecosystem/bolts.html)
 
 ### How to Start:
+1. Download the LIDC data and run the preprocessing script as explained here: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing)
 
 #### Use the latest PyTorch Lightning Bolts implementation
 You can use the implementation of PyTorch Lightning Bolts. You only have to change the data loading. 
@@ -11,7 +12,6 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
 - BYOL: [https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol](https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol)
 
 #### Use our PyTorch Lightning Bolts adapion
-1. Download the LIDC data and run the preprocessing script as explained here: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing)
 2. Change the folder structure of the preprocessed data to: (Take part of the images as validation) 
     ```bash
         LIDC-Data
