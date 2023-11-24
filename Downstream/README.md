@@ -6,10 +6,15 @@ We tested our pre-training on three CT classification tasks:
 - **OrgMNIST**: Multi-class classification of 11 body organs on patches cropped around organs from abdominal CT scans (From MedMNIST Challenges [https://medmnist.com/](https://medmnist.com/) or [https://doi.org/10.1038/s41597-022-01721-8](https://doi.org/10.1038/s41597-022-01721-8)) 
 - **Brain**: Brain hemorrhage classification on brain CT scans on an internal dataset of the Ulm Univerity Medical Center
 
-  
-Here are the jupyther notebooks with PyTorch Lightning and Moani for the three Downstream Tasks.
+We gradually reduced the training dataset size for all three tasks to evaluate which pre-training method is best when only small annotated datasets are available. 
+
+Here are our results: 
+![Results](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/assets/75016933/83df9ede-bbf9-4eea-816c-f9de718ee764)
+
+
 
 ### How to Start: 
+We have jupyther notebooks with PyTorch Lightning and Moani for the three Downstream Tasks. \
 If you are using Conda on Linux, here is how to get started: 
 1. Open your terminal and follow these steps: 
     1. <code>conda create --name SSL_Downstream python==3.10</code>
