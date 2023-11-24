@@ -17,9 +17,11 @@ Due to the challenge of obtaining sufficient annotated training data in medical 
 ### 1) Pre-Training
 First, the deep learning model needs to be pre-trained with a large dataset of images without annotations. 
 Go to the folder [Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training) for the the pre-training code.
+You can download our pre-trained models below.
 
 ### 2) Downstream
 The pre-training is evaluated on three downstream classification tasks. 
+You can test the downstream tasks with the pre-trained models you can download below. 
 Go to the folder [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) for the the downstream code.
 
 ## Pre-Trained Models 
@@ -35,7 +37,8 @@ You can download the pre-trained model checkpoints here from Google Drive:
 
 
 Here is code to initialise a ResNet50 model from PyTorch with the pre-training weights stored in the Checkpoint:  
-(pytorch==1.12.1 torchvision==0.13.1)
+(pytorch==1.12.1 torchvision==0.13.1) \
+You can also check out the the [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) code where this is already implemented.
 
 ```python
 
