@@ -1,8 +1,8 @@
 # Self-Supervised Pre-Training with Contrastive and Masked Autoencoder Methods for Dealing with Small Datasets in Deep Learning for Medical Imaging
 
 Publication about self-supervised pre-training in medical imaging accepted in Nature Scientific Reports. \
-Nature DOI: https://doi.org/10.1038/s41598-023-46433-0 \
-ArXiv Version: <https://arxiv.org/abs/2308.06534>
+Nature: https://doi.org/10.1038/s41598-023-46433-0 \
+ArXiv: <https://arxiv.org/abs/2308.06534>
 
 ## Introduction
 Training deep learning models requires large datasets with annotations for all training samples. However, in the medical imaging domain, annotated datasets for specific tasks are often small due to the high complexity of annotations, limited access, or the rarity of diseases. To address this challenge, deep learning models can be pre-trained on large image datasets without annotations using methods from the field of self-supervised learning.
@@ -12,7 +12,7 @@ In this paper we compare state-of-the-art self-supervised pre-training methods b
 
 Due to the challenge of obtaining sufficient annotated training data in medical imaging, it is of particular interest to evaluate how the self-supervised pre-training methods perform when fine-tuning on small datasets. Our experiments show, that the SparK pre-training method is more robust to the training downstream dataset size than the contrastive methods. Based on our results, we propose the SparK pre-training for medical imaging tasks with only small annotated datasets.
 
-## Code: 
+## Code 
 
 ### 1) Pre-Training
 First, the deep learning model needs to be pre-trained with a large dataset of images without annotations. 
@@ -79,4 +79,28 @@ print(format(pretrained_model))
   # SwAV: All "projection_head" layers (beacuse SwAV has an aditional projection head for the online clustering) 
   # SparK: []
 
+```
+
+## Contact
+This work was done in a collaboration between the [Clinic of Radiology](https://www.uniklinik-ulm.de/radiologie-diagnostische-und-interventionelle.html) and the [Visual Computing Research Group](https://viscom.uni-ulm.de/) at the Univerity of Ulm.
+
+My Profiles: 
+- [Ulm University Profil](https://viscom.uni-ulm.de/members/daniel-wolf/)
+- [Personal Website](https://wolfda95.github.io/)
+- [Google Scholar](https://scholar.google.de/citations?hl=de&user=vqKsXwgAAAAJ)
+- [Orcrid](https://orcid.org/0000-0002-8584-5189)
+- [LinkedIn](https://www.linkedin.com/in/wolf-daniel/)
+
+## Cite
+```latex
+@article{wolf2023self,
+  title={Self-supervised pre-training with contrastive and masked autoencoder methods for dealing with small datasets in deep learning for medical imaging},
+  author={Wolf, Daniel and Payer, Tristan and Lisson, Catharina Silvia and Lisson, Christoph Gerhard and Beer, Meinrad and G{\"o}tz, Michael and Ropinski, Timo},
+  journal={Scientific Reports},
+  volume={13},
+  number={1},
+  pages={20260},
+  year={2023},
+  publisher={Nature Publishing Group UK London}
+}
 ```
