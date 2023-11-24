@@ -82,10 +82,10 @@ def save(image, save_path, patient_name, i, w1, w2):
 def main():
 
     # ToDo: Path were the  DICOM files are saved:
-    data_path = "/home/wolfda/Data/LIDC/manifest-1600709154662/LIDC-IDRI"
+    data_path = "/path/to/LIDC/manifest-1600709154662/LIDC-IDRI" # In this folder are many subfolders, one for each patient
 
     # ToDo: Path were the data should be saved
-    save_path = "/home/wolfda/Data/LIDC/manifest-1600709154662/LIDC-2D-png" # Mus vorher angelegt werden!!!!!!!
+    save_path = "/folder/where/the/data/should/be/saved" # Create a folder on your computer where you want to save the pn images
 
     # ToDo: Choose a Window:
     #body_part = "abdomen": wl = 60, ww = 400
