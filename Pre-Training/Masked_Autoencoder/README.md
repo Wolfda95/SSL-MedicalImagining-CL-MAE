@@ -2,10 +2,14 @@
 
 SparK is the first succesfull adaption of Masked Autoencoder Self-Supervised Pre-Training on Convolutional Neural Networks (CNNs).
 
-This is code from the official implementation of SparK [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4) 
+This is code from the official implementation of SparK [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4) (MIT license)
+
+### How to start:
+
+
+
 
 Please also cite the SparK paper: 
-
 
 ```latex
 @inproceedings{
