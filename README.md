@@ -4,6 +4,7 @@ Publication about self-supervised pre-training in medical imaging accepted in Na
 Nature DOI: https://doi.org/10.1038/s41598-023-46433-0 \
 ArXiv Version: <https://arxiv.org/abs/2308.06534>
 
+## Introduction
 Deep learning models requires large datasets with annotations for all training samples. However, in the medical imaging domain, annotated datasets for specific tasks are often small due to the high complexity of annotations, limited access, or the rarity of diseases. To address this challenge, deep learning models can be pre-trained on large image datasets without annotations using methods from the field of self-supervised learning.
 In this paper we compare state-of-the art self-supervised pre-training methods based on contrastive learning ([SwAV](https://proceedings.neurips.cc/paper/2020/hash/70feb62b69f16e0238f741fab228fec2-Abstract.html), [MoCo](https://openaccess.thecvf.com/content_CVPR_2020/html/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.html), [BYOL](https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf)) and masked autoencoders ([SparK](https://proceedings.neurips.cc/paper/2020/hash/70feb62b69f16e0238f741fab228fec2-Abstract.html)) for Convolutional Neural networsk (CNNs).
 
@@ -11,6 +12,15 @@ In this paper we compare state-of-the art self-supervised pre-training methods b
 
 Due to the challenge of obtaining sufficient annotated training data in medical imaging, it is of particular interest to evaluate how the self-supervised pre-training methods perform when fine-tuning on small datasets. Our experiments show, that the SparK pre-training method is more robust to the training downstream dataset size than the contrastive methods. Based on our results, we propose the SparK pre-training for medical imaging tasks with only small annotated datasets.
 
+## Code: 
+
+### 1) Pre-Training
+First, the deep learning model needs to be pre-trained with a large dataset of images without annotations. 
+Go to the folder [Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training) for the the pre-training code.
+
+### 2) Downstream
+The pre-training is evaluated on three downstream classification tasks. 
+Go to the folder [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) for the the dowsntream code.
 
 ## Pre-Trained Models 
 You can download the pre-trained model checkpoints here from Google Drive:
