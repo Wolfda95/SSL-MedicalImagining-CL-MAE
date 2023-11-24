@@ -16,27 +16,39 @@ We used the implementation of PyTorch Lightning Bolds [https://lightning.ai/docs
     3. <code>conda install pytorch==1.7.1 torchvision~=0.12.0 cudatoolkit=11.6 -c pytorch</code>
     4. <code>cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/</code>
     5. <code>pip install -r requirements.txt</code>
-4. Start the pre-training with a bash script:
+4. Start the pre-training with a bash script: \
    SwAV: 
     ```bash
     #!/bin/bash
 
-wandb login your_login_id
-python .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/pl_bolts/models/self_supervised/swav/swav_module_lidc.py \
---save_path /path/where/results/should/be/saved \
---data_dir ./Data/PreTrain_Lung/Data/Hash-Volume-6_LIDC_HALF \
---model Hash-Volume-6_LIDC_HALF \
---test Hash-Volume-6_LIDC_HALF \
---project Lung_SwAV_PreTrain \
---batch_size 128 \
---group Bs_128 \
---tags ["500Proto_Color2x04-2x02-Blur-Crop"] \
---learning_rate 0.15 \
---final_lr 0.00015 \
---start_lr 0.3 \
---freeze_prototypes_epochs 313 \
---accumulate_grad_batches 1 \
---optimizer lars \
---pretrained_weights ./Data/ImageNet/swav_800ep_pretrain.pth.tar \
+    wandb login your_login_id
+    python .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/pl_bolts/models/self_supervised/swav/swav_module_lidc.py \
+    --save_path /path/where/results/should/be/saved \
+    --data_dir /path/to/the/LIDC-Data \
+    --model Some_Name_for_WandB \
+    --test Some_Name_for_WandB \
+    --project WandB_project_name \
+    --batch_size 128 \
+    --group Bs_128 \
+    --tags ["500Proto_Color2x04-2x02-Blur-Crop"] \
+    --learning_rate 0.15 \
+    --final_lr 0.00015 \
+    --start_lr 0.3 \
+    --freeze_prototypes_epochs 313 \
+    --accumulate_grad_batches 1 \
+    --optimizer lars \
     ```
-For further information and other setting please refere to the SparK github: [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4)
+
+    BYOL:
+   ```bash
+    #!/bin/bash
+    
+    wandb login your_login_id
+    python .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/pl_bolts/models/self_supervised/byol/byol_module.py --gpus 1 \
+    --data_dir /path/to/the/LIDC-Data \
+    --batch_size 64 \
+    --savepath /path/where/results/should/be/saved \
+    --group BYOL \
+    --name WandB_name \
+    ```
+For further information and other setting please refere to the PyTorch Lightning Bolds github: [https://github.com/Lightning-Universe/lightning-bolts/tree/master](https://github.com/Lightning-Universe/lightning-bolts/tree/master)
