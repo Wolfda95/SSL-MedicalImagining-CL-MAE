@@ -1,0 +1,49 @@
+2023-06-27 10:46:34,051 INFO    StreamThr :2866141 [internal.py:wandb_internal():92] W&B internal server running at pid: 2866141, started at: 2023-06-27 10:46:34.051576
+2023-06-27 10:46:34,052 DEBUG   HandlerThread:2866141 [handler.py:handle_request():141] handle_request: status
+2023-06-27 10:46:34,053 DEBUG   SenderThread:2866141 [sender.py:send_request():249] send_request: status
+2023-06-27 10:46:34,054 DEBUG   SenderThread:2866141 [sender.py:send():235] send: header
+2023-06-27 10:46:34,054 INFO    WriterThread:2866141 [datastore.py:open_for_write():77] open: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/run-1i95ph43.wandb
+2023-06-27 10:46:34,054 DEBUG   SenderThread:2866141 [sender.py:send():235] send: run
+2023-06-27 10:46:34,055 INFO    SenderThread:2866141 [sender.py:_maybe_setup_resume():492] checking resume status for None/Byol/1i95ph43
+2023-06-27 10:46:34,464 DEBUG   HandlerThread:2866141 [handler.py:handle_request():141] handle_request: check_version
+2023-06-27 10:46:34,465 INFO    SenderThread:2866141 [dir_watcher.py:__init__():169] watching files in: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files
+2023-06-27 10:46:34,465 INFO    SenderThread:2866141 [sender.py:_start_run_threads():812] run started: 1i95ph43 with start time 1687855594
+2023-06-27 10:46:34,465 DEBUG   SenderThread:2866141 [sender.py:send():235] send: summary
+2023-06-27 10:46:34,465 INFO    SenderThread:2866141 [sender.py:_save_file():947] saving file wandb-summary.json with policy end
+2023-06-27 10:46:34,465 DEBUG   SenderThread:2866141 [sender.py:send_request():249] send_request: check_version
+2023-06-27 10:46:34,543 DEBUG   HandlerThread:2866141 [handler.py:handle_request():141] handle_request: run_start
+2023-06-27 10:46:34,548 DEBUG   HandlerThread:2866141 [meta.py:__init__():37] meta init
+2023-06-27 10:46:34,548 DEBUG   HandlerThread:2866141 [meta.py:__init__():51] meta init done
+2023-06-27 10:46:34,548 DEBUG   HandlerThread:2866141 [meta.py:probe():211] probe
+2023-06-27 10:46:34,554 DEBUG   HandlerThread:2866141 [meta.py:_setup_git():201] setup git
+2023-06-27 10:46:34,557 DEBUG   HandlerThread:2866141 [meta.py:_setup_git():208] setup git done
+2023-06-27 10:46:34,558 DEBUG   HandlerThread:2866141 [meta.py:_save_pip():55] save pip
+2023-06-27 10:46:34,558 DEBUG   HandlerThread:2866141 [meta.py:_save_pip():69] save pip done
+2023-06-27 10:46:34,558 DEBUG   HandlerThread:2866141 [meta.py:_save_conda():76] save conda
+2023-06-27 10:46:35,466 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_created():217] file/dir created: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/conda-environment.yaml
+2023-06-27 10:46:35,466 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_created():217] file/dir created: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/wandb-summary.json
+2023-06-27 10:46:35,466 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_created():217] file/dir created: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/requirements.txt
+2023-06-27 10:46:36,722 DEBUG   HandlerThread:2866141 [meta.py:_save_conda():86] save conda done
+2023-06-27 10:46:36,722 DEBUG   HandlerThread:2866141 [meta.py:probe():249] probe done
+2023-06-27 10:46:36,761 DEBUG   SenderThread:2866141 [sender.py:send():235] send: files
+2023-06-27 10:46:36,761 INFO    SenderThread:2866141 [sender.py:_save_file():947] saving file wandb-metadata.json with policy now
+2023-06-27 10:46:36,764 DEBUG   HandlerThread:2866141 [handler.py:handle_request():141] handle_request: stop_status
+2023-06-27 10:46:36,764 DEBUG   SenderThread:2866141 [sender.py:send_request():249] send_request: stop_status
+2023-06-27 10:46:36,953 DEBUG   SenderThread:2866141 [sender.py:send():235] send: telemetry
+2023-06-27 10:46:36,954 DEBUG   SenderThread:2866141 [sender.py:send():235] send: metric
+2023-06-27 10:46:36,954 DEBUG   SenderThread:2866141 [sender.py:send():235] send: telemetry
+2023-06-27 10:46:36,954 DEBUG   SenderThread:2866141 [sender.py:send():235] send: metric
+2023-06-27 10:46:36,954 WARNING SenderThread:2866141 [sender.py:send_metric():905] Seen metric with glob (shouldnt happen)
+2023-06-27 10:46:37,076 DEBUG   SenderThread:2866141 [sender.py:send():235] send: config
+2023-06-27 10:46:37,095 DEBUG   SenderThread:2866141 [sender.py:send():235] send: config
+2023-06-27 10:46:37,323 INFO    Thread-16 :2866141 [upload_job.py:push():137] Uploaded file /tmp/tmp5brp6r3swandb/c1tghqxg-wandb-metadata.json
+2023-06-27 10:46:37,465 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/conda-environment.yaml
+2023-06-27 10:46:37,465 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_created():217] file/dir created: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/output.log
+2023-06-27 10:46:37,465 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_created():217] file/dir created: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/wandb-metadata.json
+2023-06-27 10:46:39,466 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/output.log
+2023-06-27 10:46:41,467 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/output.log
+2023-06-27 10:46:45,470 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/output.log
+2023-06-27 10:47:02,815 DEBUG   SenderThread:2866141 [sender.py:send():235] send: stats
+2023-06-27 10:47:05,475 INFO    Thread-12 :2866141 [dir_watcher.py:_on_file_modified():230] file/dir modified: /home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/wandb/run-20230627_104634-1i95ph43/files/config.yaml
+2023-06-27 10:47:33,087 DEBUG   SenderThread:2866141 [sender.py:send():235] send: stats
+2023-06-27 10:48:03,335 DEBUG   SenderThread:2866141 [sender.py:send():235] send: stats

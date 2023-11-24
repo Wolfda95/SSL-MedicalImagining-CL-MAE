@@ -1,0 +1,192 @@
+
+Epoch 0:   0%|          | 0/76 [00:00<?, ?it/s]
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py:1823: PossibleUserWarning: GPU available but not used. Set `accelerator` and `devices` using `Trainer(accelerator='gpu', devices=1)`.
+  rank_zero_warn(
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:133: UserWarning: You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.
+  rank_zero_warn("You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.")
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:326: LightningDeprecationWarning: Base `LightningModule.on_train_batch_end` hook signature has changed in v1.5. The `dataloader_idx` argument will be removed in v1.7.
+  rank_zero_deprecation(
+  | Name           | Type       | Params
+----------------------------------------------
+0 | online_network | SiameseArm | 35.1 M
+1 | target_network | SiameseArm | 35.1 M
+----------------------------------------------
+70.1 M    Trainable params
+0         Non-trainable params
+70.1 M    Total params
+280.474   Total estimated model params size (MB)
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 291, in cli_main
+    trainer.fit(model, datamodule=dm)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 724, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1237, in _run
+    results = self._run_stage()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1324, in _run_stage
+    return self._run_train()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1354, in _run_train
+    self.fit_loop.run()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 269, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/core/lightning.py", line 1625, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/adam.py", line 100, in step
+    loss = closure()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1766, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 333, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 144, in training_step
+    loss_a, loss_b, total_loss = self.shared_step(batch, batch_idx)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 126, in shared_step
+    y1, z1, h1 = self.online_network(img_1)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/models.py", line 37, in forward
+    y = self.encoder(x)[0]
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/resnets.py", line 250, in forward
+    x0 = self.bn1(x0)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 135, in forward
+    self._check_input_dim(input)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 407, in _check_input_dim
+    raise ValueError("expected 4D input (got {}D input)".format(input.dim()))
+ValueError: expected 4D input (got 3D input)
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 291, in cli_main
+    trainer.fit(model, datamodule=dm)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 724, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1237, in _run
+    results = self._run_stage()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1324, in _run_stage
+    return self._run_train()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1354, in _run_train
+    self.fit_loop.run()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/fit_loop.py", line 269, in advance
+    self._outputs = self.epoch_loop.run(self._data_fetcher)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/epoch/training_epoch_loop.py", line 208, in advance
+    batch_output = self.batch_loop.run(batch, batch_idx)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/batch/training_batch_loop.py", line 88, in advance
+    outputs = self.optimizer_loop.run(split_batch, optimizers, batch_idx)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/base.py", line 204, in run
+    self.advance(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 203, in advance
+    result = self._run_optimization(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 256, in _run_optimization
+    self._optimizer_step(optimizer, opt_idx, batch_idx, closure)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 369, in _optimizer_step
+    self.trainer._call_lightning_module_hook(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1596, in _call_lightning_module_hook
+    output = fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/core/lightning.py", line 1625, in optimizer_step
+    optimizer.step(closure=optimizer_closure)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/core/optimizer.py", line 168, in step
+    step_output = self._strategy.optimizer_step(self._optimizer, self._optimizer_idx, closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 193, in optimizer_step
+    return self.precision_plugin.optimizer_step(model, optimizer, opt_idx, closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 155, in optimizer_step
+    return optimizer.step(closure=closure, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/lr_scheduler.py", line 65, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/optimizer.py", line 88, in wrapper
+    return func(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/optim/adam.py", line 100, in step
+    loss = closure()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/plugins/precision/precision_plugin.py", line 140, in _wrap_closure
+    closure_result = closure()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 148, in __call__
+    self._result = self.closure(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 134, in closure
+    step_output = self._step_fn()
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/loops/optimization/optimizer_loop.py", line 427, in _training_step
+    training_step_output = self.trainer._call_strategy_hook("training_step", *step_kwargs.values())
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1766, in _call_strategy_hook
+    output = fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/strategies/strategy.py", line 333, in training_step
+    return self.model.training_step(*args, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 144, in training_step
+    loss_a, loss_b, total_loss = self.shared_step(batch, batch_idx)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 126, in shared_step
+    y1, z1, h1 = self.online_network(img_1)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/models.py", line 37, in forward
+    y = self.encoder(x)[0]
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/resnets.py", line 250, in forward
+    x0 = self.bn1(x0)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1110, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 135, in forward
+    self._check_input_dim(input)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torch/nn/modules/batchnorm.py", line 407, in _check_input_dim
+    raise ValueError("expected 4D input (got {}D input)".format(input.dim()))

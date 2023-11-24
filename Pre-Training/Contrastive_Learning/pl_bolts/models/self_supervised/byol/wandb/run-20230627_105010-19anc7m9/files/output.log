@@ -1,0 +1,33 @@
+
+Epoch 0:   0%|          | 0/3 [00:00<?, ?it/s]
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py:1823: PossibleUserWarning: GPU available but not used. Set `accelerator` and `devices` using `Trainer(accelerator='gpu', devices=1)`.
+  rank_zero_warn(
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:133: UserWarning: You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.
+  rank_zero_warn("You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.")
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:326: LightningDeprecationWarning: Base `LightningModule.on_train_batch_end` hook signature has changed in v1.5. The `dataloader_idx` argument will be removed in v1.7.
+  rank_zero_deprecation(
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/callbacks/model_checkpoint.py:608: UserWarning: Checkpoint directory /home/wolfda/Data/Spark/PreTrain/BYOL exists and is not empty.
+  rank_zero_warn(f"Checkpoint directory {dirpath} exists and is not empty.")
+  | Name           | Type       | Params
+----------------------------------------------
+0 | online_network | SiameseArm | 35.1 M
+1 | target_network | SiameseArm | 35.1 M
+----------------------------------------------
+70.1 M    Trainable params
+0         Non-trainable params
+70.1 M    Total params
+280.474   Total estimated model params size (MB)
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py:1938: PossibleUserWarning: The number of training samples (3) is smaller than the logging interval Trainer(log_every_n_steps=50). Set a lower value for log_every_n_steps if you want to see logs for the training epoch.
+Epoch 0:   0%|          | 0/3 [00:00<?, ?it/s]torch.Size([64, 3, 224, 224])
+torch.Size([64, 3, 224, 224])
+tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0])
+torch.Size([64, 2048])
+torch.Size([64, 256])
+torch.Size([64, 256])
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py:727: UserWarning: Detected KeyboardInterrupt, attempting graceful shutdown...

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 293, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 268, in cli_main
+    model = BYOL(**args.__dict__)
+TypeError: BYOL.__init__() missing 1 required positional argument: 'num_classes'
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 293, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 268, in cli_main
+    model = BYOL(**args.__dict__)

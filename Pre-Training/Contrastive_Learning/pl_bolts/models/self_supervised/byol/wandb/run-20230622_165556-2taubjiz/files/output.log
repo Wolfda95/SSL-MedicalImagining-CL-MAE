@@ -1,0 +1,26 @@
+GPU available: True, used: False
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py:1823: PossibleUserWarning: GPU available but not used. Set `accelerator` and `devices` using `Trainer(accelerator='gpu', devices=1)`.
+  rank_zero_warn(
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:133: UserWarning: You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.
+  rank_zero_warn("You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.")
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:326: LightningDeprecationWarning: Base `LightningModule.on_train_batch_end` hook signature has changed in v1.5. The `dataloader_idx` argument will be removed in v1.7.
+  rank_zero_deprecation(
+  | Name           | Type       | Params
+----------------------------------------------
+0 | online_network | SiameseArm | 35.1 M
+1 | target_network | SiameseArm | 35.1 M
+----------------------------------------------
+70.1 M    Trainable params
+0         Non-trainable params
+70.1 M    Total params
+280.474   Total estimated model params size (MB)
+Epoch 0:   0%|          | 0/76 [00:00<?, ?it/s]torch.Size([128, 3, 224, 224])
+torch.Size([128, 3, 224, 224])
+tensor([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
+        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,

@@ -1,0 +1,11 @@
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 273, in cli_main
+    online_eval = SSLOnlineEvaluator(dataset=args.dataset, z_dim=2048, num_classes=dm.num_classes)
+AttributeError: 'NoneType' object has no attribute 'num_classes'
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 273, in cli_main
+    online_eval = SSLOnlineEvaluator(dataset=args.dataset, z_dim=2048, num_classes=dm.num_classes)

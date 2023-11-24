@@ -1,0 +1,24 @@
+{
+    "os": "Linux-5.19.0-45-generic-x86_64-with-glibc2.35",
+    "python": "3.10.2",
+    "heartbeatAt": "2023-06-27T08:50:10.770611",
+    "startedAt": "2023-06-27T08:50:10.136791",
+    "docker": null,
+    "gpu": "NVIDIA GeForce RTX 3090",
+    "gpu_count": 1,
+    "cpu_count": 24,
+    "cuda": null,
+    "args": null,
+    "state": "running",
+    "program": "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py",
+    "codePath": "pl_bolts/models/self_supervised/byol/byol_module.py",
+    "git": {
+        "remote": "https://gitlab-mi.informatik.uni-ulm.de/Wolfda95/contrastive_pretrain_lightning_bolts.git",
+        "commit": "3c6faa1169e64bd80dac85e56b4c86e05a081972"
+    },
+    "email": "daniel.wolf@uni-ulm.de",
+    "root": "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts",
+    "host": "goetzfulpc0001",
+    "username": "wolfda",
+    "executable": "/home/wolfda/anaconda3/envs/swavlightning_next/bin/python"
+}

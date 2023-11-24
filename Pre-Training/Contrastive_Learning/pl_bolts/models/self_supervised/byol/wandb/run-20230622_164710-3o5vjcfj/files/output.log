@@ -1,0 +1,63 @@
+GPU available: True, used: True
+TPU available: False, using: 0 TPU cores
+IPU available: False, using: 0 IPUs
+HPU available: False, using: 0 HPUs
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:133: UserWarning: You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.
+  rank_zero_warn("You defined a `validation_step` but have no `val_dataloader`. Skipping val loop.")
+/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/configuration_validator.py:326: LightningDeprecationWarning: Base `LightningModule.on_train_batch_end` hook signature has changed in v1.5. The `dataloader_idx` argument will be removed in v1.7.
+  rank_zero_deprecation(
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 291, in cli_main
+    trainer.fit(model, datamodule=dm)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 724, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1175, in _run
+    self._call_setup_hook()  # allow user to setup lightning_module in accelerator environment
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1493, in _call_setup_hook
+    self.datamodule.setup(stage=fn)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/logo_data_module.py", line 105, in setup
+    self.train_set = LoGoDataset(self.data_dir, self.tau_g, self.tau_l)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/logo_data_set.py", line 19, in __init__
+    super(LoGoDataset, self).__init__(data_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 310, in __init__
+    super().__init__(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 146, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 190, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 103, in make_dataset
+    raise FileNotFoundError(msg)
+FileNotFoundError: Found no valid file for the classes cifar-10-batches-py. Supported extensions are: .jpg, .jpeg, .png, .ppm, .bmp, .pgm, .tif, .tiff, .webp
+Traceback (most recent call last):
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 295, in <module>
+    cli_main()
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/byol_module.py", line 291, in cli_main
+    trainer.fit(model, datamodule=dm)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 771, in fit
+    self._call_and_handle_interrupt(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 724, in _call_and_handle_interrupt
+    return trainer_fn(*args, **kwargs)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 812, in _fit_impl
+    results = self._run(model, ckpt_path=self.ckpt_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1175, in _run
+    self._call_setup_hook()  # allow user to setup lightning_module in accelerator environment
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/pytorch_lightning/trainer/trainer.py", line 1493, in _call_setup_hook
+    self.datamodule.setup(stage=fn)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/logo_data_module.py", line 105, in setup
+    self.train_set = LoGoDataset(self.data_dir, self.tau_g, self.tau_l)
+  File "/home/wolfda/PycharmProjects/contrastive_pretrain_lightning_bolts/pl_bolts/models/self_supervised/byol/logo_data_set.py", line 19, in __init__
+    super(LoGoDataset, self).__init__(data_path)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 310, in __init__
+    super().__init__(
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 146, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 190, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+  File "/home/wolfda/anaconda3/envs/swavlightning_next/lib/python3.10/site-packages/torchvision/datasets/folder.py", line 103, in make_dataset
+    raise FileNotFoundError(msg)
