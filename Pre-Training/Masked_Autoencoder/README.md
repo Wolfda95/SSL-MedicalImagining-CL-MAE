@@ -23,9 +23,14 @@ This is code from the official implementation of SparK [https://github.com/keyu-
 4. Start the pre-training with a bash script:
     ```bash
     #!/bin/bash
-
-    cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Masked_Autoencoder/
-    python3 main.py --exp_name=ResNet50_1 --data_path=/path/to/LIDC-Data --model=resnet50 --bs=32
+    
+    python ./main.py \
+    --exp_name=ResNet50_1 \
+    --data_path=/path/to/LIDC-Data \
+    --model=resnet50 \
+    --bs=32 \
+    --exp_dir=/path/to/where/results/should/be/saved \
+    --ep=1600 \
     ```
 For further information and other setting please refere to the SparK github: [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4)
 
