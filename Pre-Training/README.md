@@ -1,6 +1,6 @@
 # Pre-Training
 
-## 1) Data_Preprocessing
+## 1) Data Preprocessing
 We use the [LIDC-IDRI](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254)  dataset for self-supervised pre-training. Only the CT images are used without any labels or other information. \
 We perform the pre-training on the 2D slices of the CT volumes. \
 Go to the folder [Data_Preprocessing](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing) for the preprocessing code.
