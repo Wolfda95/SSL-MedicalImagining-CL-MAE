@@ -85,7 +85,7 @@ print(format(pretrained_model))
 This work was done in a collaboration between the [Clinic of Radiology](https://www.uniklinik-ulm.de/radiologie-diagnostische-und-interventionelle.html) and the [Visual Computing Research Group](https://viscom.uni-ulm.de/) at the Univerity of Ulm.
 
 My Profiles: 
-- [Ulm University Profil](https://viscom.uni-ulm.de/members/daniel-wolf/)
+- [Ulm University Profile](https://viscom.uni-ulm.de/members/daniel-wolf/)
 - [Personal Website](https://wolfda95.github.io/)
 - [Google Scholar](https://scholar.google.de/citations?hl=de&user=vqKsXwgAAAAJ)
 - [Orcrid](https://orcid.org/0000-0002-8584-5189)
