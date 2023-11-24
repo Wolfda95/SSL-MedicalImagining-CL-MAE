@@ -17,7 +17,7 @@ This is code from the official implementation of SparK [https://github.com/keyu-
 2. Open your terminal and follow these steps: 
     1. <code>conda create --name SSL_Downstream python==3.8</code>
     2. <code>conda activate SSL_Downstream</code>
-    3. <code>conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch</code>\
+    3. <code>conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch</code>
     4. <code>cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Masked_Autoencoder/</code>
     5. <code>pip install -r requirements.txt</code>
 4. Start the pre-training with a bash script:
