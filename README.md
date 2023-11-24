@@ -1,9 +1,16 @@
 # Self-Supervised Pre-Training with Contrastive and Masked Autoencoder Methods for Dealing with Small Datasets in Deep Learning for Medical Imaging
 
-
-Publication about self-supervised pre-training in medical imaging, accepted in Nature Scientific Reports. \
+Publication about self-supervised pre-training in medical imaging accepted in Nature Scientific Reports. \
 Nature DOI: https://doi.org/10.1038/s41598-023-46433-0 \
 ArXiv Version: <https://arxiv.org/abs/2308.06534>
+
+Deep learning models requires large datasets with annotations for all training samples. However, in the medical imaging domain, annotated datasets for specific tasks are often small due to the high complexity of annotations, limited access, or the rarity of diseases. To address this challenge, deep learning models can be pre-trained on large image datasets without annotations using methods from the field of self-supervised learning.
+In this paper we compare state-of-the art self-supervised pre-training methods based on contrastive learning ([SwAV](https://proceedings.neurips.cc/paper/2020/hash/70feb62b69f16e0238f741fab228fec2-Abstract.html), [MoCo](https://openaccess.thecvf.com/content_CVPR_2020/html/He_Momentum_Contrast_for_Unsupervised_Visual_Representation_Learning_CVPR_2020_paper.html), [BYOL](https://proceedings.neurips.cc/paper_files/paper/2020/file/f3ada80d5c4ee70142b17b8192b2958e-Paper.pdf)) and masked autoencoders ([SparK](https://proceedings.neurips.cc/paper/2020/hash/70feb62b69f16e0238f741fab228fec2-Abstract.html)) for Convolutional Neural networsk (CNNs).
+
+![SSL](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/assets/75016933/cf1589b7-4ea7-463e-866b-15586e131cd0)
+
+Due to the challenge of obtaining sufficient annotated training data in medical imaging, it is of particular interest to evaluate how the self-supervised pre-training methods perform when fine-tuning on small datasets. Our experiments show, that the SparK pre-training method is more robust to the training downstream dataset size than the contrastive methods. Based on our results, we propose the SparK pre-training for medical imaging tasks with only small annotated datasets.
+
 
 ## Pre-Trained Models 
 You can download the pre-trained model checkpoints here from Google Drive:
