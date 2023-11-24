@@ -91,7 +91,7 @@ My Profiles:
 - [Ulm University Profile](https://viscom.uni-ulm.de/members/daniel-wolf/)
 - [Personal Website](https://wolfda95.github.io/)
 - [Google Scholar](https://scholar.google.de/citations?hl=de&user=vqKsXwgAAAAJ)
-- [Orcrid](https://orcid.org/0000-0002-8584-5189)
+- [Orcid](https://orcid.org/0000-0002-8584-5189)
 - [LinkedIn](https://www.linkedin.com/in/wolf-daniel/)
 
 ## Cite
