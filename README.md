@@ -16,13 +16,13 @@ Due to the challenge of obtaining sufficient annotated training data in medical 
 
 ### 1) Pre-Training
 First, the deep learning model needs to be pre-trained with a large dataset of images without annotations. \
-Go to the folder [Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training) for the the pre-training code. \
+Go to the folder [Pre-Training](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training) for the the pre-training code and further explanations.. \
 You can download our pre-trained models below.
 
 ### 2) Downstream
 The pre-training is evaluated on three downstream classification tasks. \
 You can test the downstream tasks with the pre-trained models you can download below. \
-Go to the folder [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) for the the downstream code.
+Go to the folder [Downstream](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Downstream) for the the downstream code and further explanations.
 
 ## Pre-Trained Models 
 You can download the pre-trained model checkpoints here from Google Drive:
