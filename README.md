@@ -1,6 +1,7 @@
 # Self-Supervised Pre-Training with Contrastive and Masked Autoencoder Methods for Dealing with Small Datasets in Deep Learning for Medical Imaging
 
-Paper accepted in Nature Scientific Reports. \
+
+Publication about self-supervised pre-training in medical imaging, accepted in Nature Scientific Reports. \
 Nature DOI: https://doi.org/10.1038/s41598-023-46433-0 \
 ArXiv Version: <https://arxiv.org/abs/2308.06534>
 
