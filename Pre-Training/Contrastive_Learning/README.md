@@ -11,21 +11,32 @@ We used the implementation of PyTorch Lightning Bolds [https://lightning.ai/docs
        train       
     ```
 2. Open your terminal and follow these steps: 
-    1. <code>conda create --name SSL_Downstream python==3.8</code>
-    2. <code>conda activate SSL_Downstream</code>
-    3. <code>conda install pytorch==1.10.0 torchvision==0.11.0 torchaudio==0.10.0 cudatoolkit=11.3 -c pytorch</code>
-    4. <code>cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Masked_Autoencoder/</code>
+    1. <code>conda create --name SSL_Contrastive python==3.10</code>
+    2. <code>conda activate SSL_Contrastive</code>
+    3. <code>conda install pytorch==1.7.1 torchvision~=0.12.0 cudatoolkit=11.6 -c pytorch</code>
+    4. <code>cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/</code>
     5. <code>pip install -r requirements.txt</code>
 4. Start the pre-training with a bash script:
+   SwAV: 
     ```bash
     #!/bin/bash
-    
-    python ./main.py \
-    --exp_name=ResNet50_1 \
-    --data_path=/path/to/LIDC-Data \
-    --model=resnet50 \
-    --bs=32 \
-    --exp_dir=/path/to/where/results/should/be/saved \
-    --ep=1600 \
+
+wandb login your_login_id
+python .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/pl_bolts/models/self_supervised/swav/swav_module_lidc.py \
+--save_path /path/where/results/should/be/saved \
+--data_dir ./Data/PreTrain_Lung/Data/Hash-Volume-6_LIDC_HALF \
+--model Hash-Volume-6_LIDC_HALF \
+--test Hash-Volume-6_LIDC_HALF \
+--project Lung_SwAV_PreTrain \
+--batch_size 128 \
+--group Bs_128 \
+--tags ["500Proto_Color2x04-2x02-Blur-Crop"] \
+--learning_rate 0.15 \
+--final_lr 0.00015 \
+--start_lr 0.3 \
+--freeze_prototypes_epochs 313 \
+--accumulate_grad_batches 1 \
+--optimizer lars \
+--pretrained_weights ./Data/ImageNet/swav_800ep_pretrain.pth.tar \
     ```
 For further information and other setting please refere to the SparK github: [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4)
