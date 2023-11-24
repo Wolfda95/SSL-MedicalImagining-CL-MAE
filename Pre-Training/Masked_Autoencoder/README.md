@@ -1,12 +1,12 @@
 # Pre-Training with SparK
 
-SparK is the first succesfull adaption of Masked Autoencoder Self-Supervised Pre-Training on Convolutional Neural Networks (CNNs).
+SparK is the first successful adaptation of masked autoencoder self-supervised pre-training to convolutional neural networks (CNNs).
 
 This is code from the official implementation of SparK [https://github.com/keyu-tian/SparK](https://github.com/keyu-tian/SparK4) (MIT license)
 
 ### How to Start: 
-1. Download the LIDC Data and run the preprocessing script as explained here: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing)
-2. Change the Folder structure of the preprocessed data to: (Take part of the images as validation) 
+1. Download the LIDC data and run the preprocessing script as explained here: [https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing](https://github.com/Wolfda95/SSL-MedicalImagining-CL-MAE/tree/main/Pre-Training/Data_Preprocessing)
+2. Change the folder structure of the preprocessed data to: (Take part of the images as validation) 
     ```bash
         LIDC-Data
        /         \
