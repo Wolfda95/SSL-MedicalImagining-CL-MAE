@@ -2,7 +2,7 @@
 
 Download the LIDC-IDRI Dataset from here: [https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254](https://wiki.cancerimagingarchive.net/pages/viewpage.action?pageId=1966254) 
 
-The data comes as DICOM images. We save each slice of each CT image as a png file. We do not applay andy windwoing since we want to use all data for pre-training. 
+The data comes as DICOM images. We save each slice of each CT volume as a png file. We do not applay andy windwoing since we want to use all data for pre-training. 
 
 ### Start: 
 If you are using Conda on Linux, here is how to get started: 
