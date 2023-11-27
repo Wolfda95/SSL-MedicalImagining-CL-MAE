@@ -94,6 +94,9 @@ My Profiles:
 - [Orcid](https://orcid.org/0000-0002-8584-5189)
 - [LinkedIn](https://www.linkedin.com/in/wolf-daniel/)
 
+If you have any questions, please email me:
+[daniel.wolf@uni-ulm.de](mailto:daniel.wolf@uni-ulm.de)
+
 ## Cite
 ```latex
 @article{wolf2023self,
