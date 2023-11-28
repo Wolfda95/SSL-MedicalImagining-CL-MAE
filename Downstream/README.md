@@ -25,7 +25,7 @@ If you are using Conda on Linux, here is how to get started:
        (The newest PyTorch should also work [https://pytorch.org/](https://pytorch.org/))
     4. <code>cd ...SSL-MedicalImagining-CL-MAE/Downstream/</code>
     5. <code>pip install -r requirements.txt</code>
-2. Download Jupyter
+    6. Download Jupyter: <code>conda install -c anaconda jupyter</code>
 3. Login to Wandb (or create an account [https://wandb.ai/](https://wandb.ai/))
 4. Open "OrgMNIST.ipynb" or "COVID_19.ipynb" or "Brain.ipynb" in Jupyter Notebook or Jupyter Lab
     1. Fill out the first cell with your preferences (Here you have to add the path to the downloaded pre-training checkpoints from the main README.md)
