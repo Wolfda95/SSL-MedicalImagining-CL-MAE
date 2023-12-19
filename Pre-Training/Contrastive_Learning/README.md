@@ -12,7 +12,7 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
 - BYOL: [https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol](https://github.com/Lightning-Universe/lightning-bolts/tree/master/src/pl_bolts/models/self_supervised/byol)
 
 #### Use our PyTorch Lightning Bolts adapion
-2. Change the folder structure of the preprocessed data to: (Take part of the images as validation) 
+2. Change the folder structure of the preprocessed data to: 
     ```bash
         LIDC-Data
          /        
