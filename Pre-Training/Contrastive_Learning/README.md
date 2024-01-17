@@ -21,7 +21,7 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
 2. Open your terminal and follow these steps: 
     1. <code>conda create --name SSL_Contrastive python==3.10</code>
     2. <code>conda activate SSL_Contrastive</code>
-    3. <code>conda install pytorch==1.7.1 torchvision~=0.12.0 cudatoolkit=11.6 -c pytorch</code>
+    3. <code>conda install pytorch==1.13.0 torchvision==0.14.0 torchaudio==0.13.0 pytorch-cuda=11.7 -c pytorch -c nvidia</code>
     4. <code>cd .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/</code>
     5. <code>pip install -r requirements.txt</code>
 4. Start the pre-training with a bash script: \
@@ -45,6 +45,25 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
     --freeze_prototypes_epochs 313 \
     --accumulate_grad_batches 1 \
     --optimizer lars \
+    ```
+
+   MoCo:
+   ```bash
+    #!/bin/bash
+    
+    wandb login your_login_id
+    python .../SSL-MedicalImagining-CL-MAE/Pre-Training/Contrastive_Learning/pl_bolts/models/self_supervised/moco/moco2_module.py \
+    --dataset=medical \
+    --batch_size=128 \
+    --data_dir=/path/to/the/LIDC-Data \
+    --savepath=/path/where/results/should/be/savedL \
+    --wandb_group=LIDC \
+    --wandb_job_type=MoCo \
+    --lambda_ 0.05 \
+    --base_encoder=resnet50 \
+    --max_epochs=800 \
+    --num_workers=12 \
+    --tags resnet50 LIDC MoCo \
     ```
 
     BYOL:
