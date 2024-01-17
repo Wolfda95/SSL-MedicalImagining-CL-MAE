@@ -47,7 +47,7 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
     --optimizer lars \
     ```
 
-   MoCo:
+   MoCo V2:
    ```bash
     #!/bin/bash
     
