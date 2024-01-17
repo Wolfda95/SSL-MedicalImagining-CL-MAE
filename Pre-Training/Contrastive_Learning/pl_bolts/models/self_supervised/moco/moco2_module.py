@@ -13,19 +13,16 @@ from typing import Union
 
 import torch
 from pytorch_lightning import LightningModule, Trainer
+from pytorch_lightning.callbacks import ModelCheckpoint
+from pytorch_lightning.loggers import WandbLogger  # weights and biases logger
 from pytorch_lightning.plugins import DDP2Plugin, DDPPlugin
-from torch import nn
+from torch import nn, optim
 from torch.nn import functional as F
 
+from custom_wandb_logger import log_hyperparameters
+from moco_data_module import MoCoDataModule
 from pl_bolts.metrics import mean, precision_at_k
-from pl_bolts.models.self_supervised.moco.transforms import (
-    Moco2EvalCIFAR10Transforms,
-    Moco2EvalImagenetTransforms,
-    Moco2EvalSTL10Transforms,
-    Moco2TrainCIFAR10Transforms,
-    Moco2TrainImagenetTransforms,
-    Moco2TrainSTL10Transforms,
-)
+from pl_bolts.models.self_supervised.moco.transforms import Moco2EvalImagenetTransforms, Moco2TrainImagenetTransforms
 from pl_bolts.utils import _TORCHVISION_AVAILABLE
 from pl_bolts.utils.warnings import warn_missing_pkg
 
@@ -33,6 +30,16 @@ if _TORCHVISION_AVAILABLE:
     import torchvision
 else:  # pragma: no cover
     warn_missing_pkg("torchvision")
+
+
+IMAGENET_MEAN = [0.485, 0.456, 0.406]
+IMAGENET_STD = [0.229, 0.224, 0.225]
+
+CEM500K_MEAN = [0.58331613, 0.58331613, 0.58331613]
+CEM500K_STD = [0.09966064, 0.09966064, 0.09966064]
+
+MED_MEAN = [0.1806, 0.1806, 0.1806]
+MED_STD = [0.1907, 0.1907, 0.1907]
 
 
 class Moco_v2(LightningModule):
@@ -99,7 +106,7 @@ class Moco_v2(LightningModule):
         """
 
         super().__init__()
-        self.save_hyperparameters()
+        self.save_hyperparameters(logger=False, ignore=["encoder_k", "encoder_q"])
 
         # create the encoders
         # num_classes is the output fc dimension
@@ -125,6 +132,7 @@ class Moco_v2(LightningModule):
         self.val_queue = nn.functional.normalize(self.val_queue, dim=0)
 
         self.register_buffer("val_queue_ptr", torch.zeros(1, dtype=torch.long))
+
 
     def init_encoders(self, base_encoder):
         """Override to add your own encoders."""
@@ -251,7 +259,22 @@ class Moco_v2(LightningModule):
         labels = torch.zeros(logits.shape[0], dtype=torch.long)
         labels = labels.type_as(logits)
 
-        return logits, labels, k
+        return logits, labels, k, q
+
+    def _compute_l_s(self, output, target, keys, queue):
+        """computes the $l_s$ loss from the LoGo paper.
+        In this case this is equal to the Info-NCE loss.
+
+        :param img_q: query image (torch.tensor)
+        :param img_k: key image (torch.tensor)
+        :param queue: queue List if negative samples
+        :returns: loss
+
+        """
+        # output, target, keys, queries = self(img_q=img_q, img_k=img_k, queue=self.queue)
+        self._dequeue_and_enqueue(keys, queue=self.queue, queue_ptr=self.queue_ptr)  # dequeue and enqueue
+        loss = F.cross_entropy(output.float(), target.long())
+        return loss
 
     def training_step(self, batch, batch_idx):
         # in STL10 we pass in both lab+unl for online ft
@@ -260,17 +283,20 @@ class Moco_v2(LightningModule):
             unlabeled_batch = batch[0]
             batch = unlabeled_batch
 
-        (img_1, img_2), _ = batch
+        (x_g), pos_crop = batch  # get global and local crops
 
         self._momentum_update_key_encoder()  # update the key encoder
-        output, target, keys = self(img_q=img_1, img_k=img_2, queue=self.queue)
-        self._dequeue_and_enqueue(keys, queue=self.queue, queue_ptr=self.queue_ptr)  # dequeue and enqueue
 
-        loss = F.cross_entropy(output.float(), target.long())
+        loss = []
+        output, target, keys, queries = self(img_q=x_g[0], img_k=x_g[1], queue=self.queue)
+        loss_gg = self._compute_l_s(output, target, keys, queue=self.queue)
+        loss.append(loss_gg)
 
-        acc1, acc5 = precision_at_k(output, target, top_k=(1, 5))
+        # if batch_idx % 2000 == 0:
+        # Combine all the individual loss terms to one single loss
+        loss = sum(loss)
 
-        log = {"train_loss": loss, "train_acc1": acc1, "train_acc5": acc5}
+        log = {"train_loss": loss}
         self.log_dict(log)
         return loss
 
@@ -283,7 +309,7 @@ class Moco_v2(LightningModule):
 
         (img_1, img_2), labels = batch
 
-        output, target, keys = self(img_q=img_1, img_k=img_2, queue=self.val_queue)
+        output, target, keys, _ = self(img_q=img_1, img_k=img_2, queue=self.val_queue)
         self._dequeue_and_enqueue(keys, queue=self.val_queue, queue_ptr=self.val_queue_ptr)  # dequeue and enqueue
 
         loss = F.cross_entropy(output, target.long())
@@ -317,26 +343,60 @@ class Moco_v2(LightningModule):
     @staticmethod
     def add_model_specific_args(parent_parser):
         parser = ArgumentParser(parents=[parent_parser], add_help=False)
-        parser.add_argument("--base_encoder", type=str, default="resnet18")
+        parser.add_argument("--base_encoder", type=str, default="resnet50")
         parser.add_argument("--emb_dim", type=int, default=128)
-        parser.add_argument("--num_workers", type=int, default=8)
+        parser.add_argument("--num_workers", type=int, default=2)
         parser.add_argument("--num_negatives", type=int, default=65536)
         parser.add_argument("--encoder_momentum", type=float, default=0.999)
         parser.add_argument("--softmax_temperature", type=float, default=0.07)
-        parser.add_argument("--learning_rate", type=float, default=0.03)
+        parser.add_argument("--learning_rate", type=float, default=0.015)
         parser.add_argument("--momentum", type=float, default=0.9)
         parser.add_argument("--weight_decay", type=float, default=1e-4)
-        parser.add_argument("--data_dir", type=str, default="./")
-        parser.add_argument("--dataset", type=str, default="cifar10", choices=["cifar10", "imagenet2012", "stl10"])
-        parser.add_argument("--batch_size", type=int, default=256)
+        parser.add_argument("--data_dir", type=str, default="/mnt/hdd/datasets/Imagenet100/train")
+        parser.add_argument("--img_dir", type=str)
+        parser.add_argument("--mask_dir", type=str)
+        parser.add_argument("--dicom_dir", type=str)
+        parser.add_argument(
+            "--dataset",
+            type=str,
+            default="cifar10",
+            choices=[
+                "cifar10",
+                "imagenet2012",
+                "stl10",
+                "logo",
+                "custom",
+                "logo_pre_seg",
+                "medical",
+                "medical_pre_seg",
+                "medical_pre_seg_masks",
+            ],
+        )
+        parser.add_argument("--batch_size", type=int, default=128)
         parser.add_argument("--use_mlp", action="store_true")
         parser.add_argument("--meta_dir", default=".", type=str, help="path to meta.bin for imagenet")
+        parser.add_argument("--global_to_local", action="store_true")
+        parser.add_argument("--local_to_local", action="store_true")
+        parser.add_argument("--lambda_", type=float, default=0.0005)
+        parser.add_argument("--crop_size", type=int, default=64)
+        parser.add_argument("--not_load_from_ram", action="store_false")
+        parser.add_argument("--global_size", type=int, default=224)
+        parser.add_argument("--reduced", action="store_true")
+        # parser.add_argument("--accumulate_grad_batches", type=int, default=1)
+
+        # wandb arguemnts
+        parser.add_argument("--savepath", default="/home/wolfda/Data/Spark/PreTrain/BYOL", type=str, help="Path to save checkpoints")
+        parser.add_argument("--offline", action="store_true", help="Offline does not save metrics on wandb")
+        parser.add_argument("--wandb_group", default="MoCoV2", type=str, help="Wandb group name")
+        parser.add_argument("--wandb_job_type", default="Pre-training", type=str, help="Wandb job type")
+        parser.add_argument("--tags", nargs="*", default=["MoCoV2"], type=str, help="Wandb tags, default = MoCoV2")
+        parser.add_argument("--name", default=None, type=str, help="Set run name to identify run in wandb web UI.")
 
         return parser
 
     @staticmethod
     def _use_ddp_or_ddp2(trainer: Trainer) -> bool:
-        return isinstance(trainer.training_type_plugin, (DDPPlugin, DDP2Plugin))
+        return isinstance(trainer.strategy, (DDPPlugin, DDP2Plugin))
 
 
 # utils
@@ -354,7 +414,7 @@ def concat_all_gather(tensor):
 
 
 def cli_main():
-    from pl_bolts.datamodules import CIFAR10DataModule, SSLImagenetDataModule, STL10DataModule
+    from pl_bolts.datamodules import SSLImagenetDataModule
 
     parser = ArgumentParser()
 
@@ -365,30 +425,54 @@ def cli_main():
     parser = Moco_v2.add_model_specific_args(parser)
     args = parser.parse_args()
 
+    # weights and biases
+    wandb_logger = WandbLogger(
+        project="MoCoV2",
+        group=args.wandb_group,
+        job_type=args.wandb_job_type,
+        tags=args.tags,
+        offline=args.offline,
+        name=args.name,
+    )
+
+    # callbacks
+    model_checkpoint = ModelCheckpoint(
+        dirpath=args.savepath,
+        filename="{epoch}-{train_loss:.2f}",
+        save_last=True,
+        save_top_k=1000,
+        # every_n_epochs=20,
+        monitor="train_loss",
+    )
+
     if args.dataset == "cifar10":
-        datamodule = CIFAR10DataModule.from_argparse_args(args)
-        datamodule.train_transforms = Moco2TrainCIFAR10Transforms()
-        datamodule.val_transforms = Moco2EvalCIFAR10Transforms()
+        ...
 
     elif args.dataset == "stl10":
-        datamodule = STL10DataModule.from_argparse_args(args)
-        datamodule.train_dataloader = datamodule.train_dataloader_mixed
-        datamodule.val_dataloader = datamodule.val_dataloader_mixed
-        datamodule.train_transforms = Moco2TrainSTL10Transforms()
-        datamodule.val_transforms = Moco2EvalSTL10Transforms()
+        datamodule = MoCoDataModule(**args.__dict__)
 
     elif args.dataset == "imagenet2012":
         datamodule = SSLImagenetDataModule.from_argparse_args(args)
         datamodule.train_transforms = Moco2TrainImagenetTransforms()
         datamodule.val_transforms = Moco2EvalImagenetTransforms()
 
-    else:
-        # replace with your own dataset, otherwise CIFAR-10 will be used by default if `None` passed in
-        datamodule = None
+    elif args.dataset == "medical":
+        datamodule = MoCoDataModule(**args.__dict__, mean=MED_MEAN, std=MED_STD)
 
     model = Moco_v2(**args.__dict__)
 
-    trainer = Trainer.from_argparse_args(args)
+    trainer = Trainer.from_argparse_args(args, gpus=1, logger=wandb_logger, callbacks=model_checkpoint)
+
+    # logging
+    object_dict = {
+        "cfg": vars(args),
+        "datamodule": datamodule,
+        "model": model,
+        "trainer": trainer,
+    }
+
+    log_hyperparameters(object_dict)
+
     trainer.fit(model, datamodule=datamodule)
 
 
