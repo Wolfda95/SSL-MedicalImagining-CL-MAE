@@ -56,7 +56,7 @@ You can use the implementation of PyTorch Lightning Bolts. You only have to chan
     --dataset=medical \
     --batch_size=128 \
     --data_dir=/path/to/the/LIDC-Data \
-    --savepath=/path/where/results/should/be/savedL \
+    --savepath=/path/where/results/should/be/saved \
     --wandb_group=LIDC \
     --wandb_job_type=MoCo \
     --lambda_ 0.05 \
