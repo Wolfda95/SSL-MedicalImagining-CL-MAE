@@ -601,6 +601,7 @@ def cli_main():
     lr_monitor = LearningRateMonitor(logging_interval="step")
     model_checkpoint = ModelCheckpoint(filename=os.path.join(checkpoint_dir, "{epoch}-{train_loss:.2f}"),
                                        save_last=True, save_top_k=200,
+                                       # every_n_epochs=50,
                                        monitor="train_loss")  # Festlegen wo hinspeichern
     callbacks = [model_checkpoint, online_evaluator] if args.online_ft else [model_checkpoint]
     callbacks.append(lr_monitor)
